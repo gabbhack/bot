@@ -8,12 +8,13 @@ ENV PATH "/app/scripts:${PATH}"
 EXPOSE 80
 WORKDIR /app
 
-COPY Pipfile* /app/
-RUN pip install pipenv && \
-    pipenv install --system --deploy
+COPY poetry.lock /app/
+COPY pyproject.toml /app/
+RUN pip install poetry && \
+    poetry install --no-dev
 ADD . /app/
 RUN chmod +x scripts/* && \
-    pybabel compile -d locales -D bot
+    poetry run pybabel compile -d locales -D bot
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["run-webhook"]

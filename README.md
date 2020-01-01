@@ -16,14 +16,14 @@ and as admin-helper in our community chats.
 ### System dependencies
 
 - Python 3.7
-- pipenv
+- poetry
 - Docker
 - docker-compose
 - make
 
 ### Setup environment
 
-- Install dependencies in venv: `pipenv install --dev`
+- Install dependencies in venv: `poetry install`
 - Copy `.env.dist` to `.env` file and change values in this file
 - Run databases in docker: `make docker-up-db`
 - Apply migrations: `make migrate`

@@ -1,3 +1,47 @@
+[tool.poetry]
+name = "aiogram_bot"
+version = "0.1"
+description = "This bot is used as example of usage aiogram framework and as admin-helper in our community chats."
+authors = ["Alex Root Junior <jroot.junior@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/aiogram/bot/"
+
+[tool.poetry.scripts]
+app = "python -m app"
+texts_update = "./scripts/exportTexts.sh"
+texts_compile = "./scripts/compileTexts.sh"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+aiogram = "^2.4"
+click = "^7.0"
+loguru = "^0.3.2"
+uvloop = "^0.13.0"
+aiohttp = "^3.6.2"
+envparse = "^0.2.0"
+sqlalchemy = "^1.3.10"
+sqlalchemy-utils = "^0.34.2"
+psycopg2-binary = "^2.8.4"
+asyncpg = "^0.19.0"
+gino = "^0.8.3"
+alembic = "^1.2.1"
+aioredis = "^1.3.0"
+cchardet = "^2.1.4"
+aiodns = "^2.0.0"
+tenacity = "^5.1.1"
+apscheduler = "^3.6.1"
+redis = "^3.3.11"
+aiohttp-healthcheck = "^1.3.1"
+requests = "*"
+
+[tool.poetry.dev-dependencies]
+black = "^19.3b0"
+isort = "^4.3.21"
+flake8 = "^3.7.8"
+ipython = "^7.8.0"
+aiohttp-autoreload = "^0.0.1"
+
 [tool.black]
 line-length = 99
 include = '\.pyi?$'
@@ -12,3 +56,14 @@ exclude = '''
   | dist
 )/
 '''
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 99
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
